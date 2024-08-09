@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Michroma", sans-serif;
+  height: 100vh; /* Changed to 100vh for full height */
+  margin: 0;
+  overflow: hidden; /* Hide scrollbars */
+}
+
+.Raj {
+  background-color: black;
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Loading Page Styles */
+.loading-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+  background-image: url('box3.jpg');
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the image within the container */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  height: 100vh; /* Sets the height of the banner to full viewport height */
+  width: 100%; /* Sets the width of the banner to full viewport width */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  color: #191654;
+  animation: backgroundAnimation 15s ease infinite; /* Background animation */
+}
+
+/* Background Animation Keyframes */
+@keyframes backgroundAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.svg {
+  height: 150px;
+  width: 150px;
+  stroke: white;
+  fill-opacity: 0;
+  stroke-width: 3px;
+  stroke-dasharray: 4500;
+  animation: draw 8s ease infinite; /* Infinite animation loop */
+}
+
+/* SVG Drawing Animation */
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 4500;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Hover Effect for SVG */
+.svg:hover {
+  animation: draw 4s ease-in-out; /* Faster animation on hover */
+  stroke: #f20a0a; /* Change stroke color on hover */
+}
+
+/* Name Raj Styles */
+.name-Raj {
+  height: 30px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Logo Name Styles */
+.logo-name {
+  color: #f20a0a;
+  font-size: 20px;
+  letter-spacing: 12px;
+  text-transform: uppercase;
+  margin-left: 20px;
+  font-weight: bolder;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  animation: textAnimation 2s ease forwards; /* Text animation */
+}
+
+/* Text Animation Keyframes */
+@keyframes textAnimation {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hover Effect for Logo Name */
+.logo-name:hover {
+  color: #fff; /* Change text color on hover */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Add text shadow on hover */
+  transform: scale(1.1); /* Slightly scale up on hover */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+  .logo-name {
+    font-size: 18px;
+    letter-spacing: 8px;
+  }
+
+  .svg {
+    height: 120px;
+    width: 120px;
+  }
+
+  .loading-page {
+    padding: 1rem; /* Add padding for better alignment on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-name {
+    font-size: 16px;
+    letter-spacing: 6px;
+  }
+
+  .svg {
+    height: 100px;
+    width: 100px;
+  }
+
+  .loading-page {
+    flex-direction: column; /* Stack elements vertically */
+    padding: 1rem; /* Add padding for better alignment */
+  }
+}
+
+@media (max-width: 320px) {
+  .logo-name {
+    font-size: 14px;
+    letter-spacing: 4px;
+  }
+
+  .svg {
+    height: 80px;
+    width: 80px;
+  }
+
+  .loading-page {
+    gap: 1rem; /* Reduce gap for smaller screens */
+  }
+}
