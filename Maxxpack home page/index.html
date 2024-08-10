@@ -20,6 +20,8 @@
   <!-- 
     - google font link
   -->
+
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;900&display=swap"
@@ -30,6 +32,130 @@
   -->
   <link rel="preload" as="image" href="./assets/images/hero-banner.png">
 </head>
+<style>
+ /* General Styles */
+.hero-content {
+  padding: 2rem;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.btn-group .btn {
+  margin: 0 10px;
+  /* Space between buttons */
+}
+
+.content-section {
+  display: none;
+  /* Hide content by default */
+}
+
+.content-section.show {
+  display: block;
+  /* Show content when active */
+}
+
+.text-center {
+  text-align: center;
+}
+
+.h2.hero-title {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.section-text {
+  margin: 0 auto;
+  text-align: justify;
+  line-height: 1.5;
+  max-width: 60rem; /* Maximum width for better readability */
+  padding: 0 5rem; /* Add padding for right and left spacing */
+}
+
+/* Adjustments for large screens */
+@media (min-width: 1200px) {
+  .section-text {
+    max-width: 100rem;
+    /* Increased padding for larger screens */
+  }
+}
+
+/* Adjustments for medium screens */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .section-text {
+    font-size: 0.85rem;
+    padding: 0 5rem;
+  }
+}
+
+/* Tablets and smaller desktops */
+@media (max-width: 768px) {
+  .banner-wrapper {
+    padding: 0.5rem;
+  }
+
+  .features-banner .banner {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 576px) {
+  .banner-wrapper {
+    padding: 0.25rem;
+  }
+
+  .features-banner .banner {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Adjustments for small screens */
+@media (max-width: 767px) {
+  .section-text {
+    font-size: 0.8rem;
+    padding: 0 2rem;
+  }
+
+  .btn-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-group .btn {
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Adjustments for extra small screens */
+@media (max-width: 575px) {
+  .section-text {
+    font-size: 0.9rem;
+    padding: 0 1rem;
+  }
+
+  .btn-group .btn {
+    width: auto;
+  }
+  .hero-title{
+    margin-right: 2rem;
+    font-size: 12px;
+  }
+}
+
+</style>
+
 
 <body id="top">
 
@@ -37,13 +163,17 @@
     - #HEADER
   -->
 
-  <header class="header" data-header>
+  <header class="header" data-header data-aos="fade-down">
     <div class="container">
 
       <h1>
         <img src="MAXXPACK ALL IN ONE PACKAGING SOLUTION.png" alt="Maxxpack Logo" class="logo main">
       </h1>
-
+      <button class="nav-toggle-btn" aria-label="Toggle navigation">
+        <span class="menu-icon">☰</span>
+        <span class="close-icon">×</span>
+        <span class="close-icon" style="display:none;">×</span>
+      </button>
       <nav class="navbar container" data-navbar>
         <ul class="navbar-list">
 
@@ -68,7 +198,7 @@
           </li>
 
           <li class="navbar-item">
-            <a href="Blog/Blog.html" class="navbar-link" data-nav-link>Blog</a>
+            <a href="Blog page/index.html" class="navbar-link" data-nav-link>Blog</a>
           </li>
 
           <li class="navbar-item">
@@ -81,7 +211,27 @@
     </div>
   </header>
 
+  <script>document.addEventListener('DOMContentLoaded', () => {
+      const toggleButton = document.querySelector('.nav-toggle-btn');
+      const navbar = document.querySelector('.navbar');
 
+      toggleButton.addEventListener('click', () => {
+        toggleButton.classList.toggle('active');
+        navbar.classList.toggle('active');
+      });
+
+      // Close the menu when a menu item is clicked
+      document.querySelectorAll('.navbar-link').forEach(link => {
+        link.addEventListener('click', () => {
+          if (navbar.classList.contains('active')) {
+            toggleButton.classList.remove('active');
+            navbar.classList.remove('active');
+          }
+        });
+      });
+    });
+
+  </script>
 
 
 
@@ -92,158 +242,197 @@
         - #HERO
       -->
 
-      <section class="section hero" id="home">
+      <section class="section hero" id="home" style="background-image: url('5590822.jpg'); background-size: cover; background-position: center;">
         <div class="container">
-
-          <figure class="hero-banner">
-            <img src="./assets/images/hero-banner.png" width="804" height="643" loading="lazy" alt="hero banner"
-              class="w-100">
-          </figure>
-
-          <div class="hero-content">
-
-            <h2 class="h1 hero-title">All In One Packaging Solution</h2>
-
-            <p class="section-text">
-              At Maxxpack Packaging, we are dedicated to the manufacturing and supplying of a unique range of products, including Pharmaceutical Labels and Cartons, Pharmaceutical Leaflets, Food and Beverages Sticker Labels, Boxes, and Cosmetic Boxes in customized sizes.
-            </p>
-            
-
+    
+            <figure class="hero-banner">
+                <img src="./assets/images/hero-banner.png" width="804" height="643" loading="lazy" alt="hero banner" class="w-100">
+            </figure>
+    
+            <div class="hero-content" data-aos="fade-down">
+    
+                <h2 class="h1 hero-title" data-aos="fade-down" style="margin-left: 5rem;">All In One Packaging Solution</h2>
+    
+                <p class="section-text" data-aos="fade-down">
+                    At Maxxpack Packaging, we are dedicated to the manufacturing and supplying of a unique range of products,
+                    including Mono Carton Box, Pharmaceutical Cartons, Pharmaceutical Inserts, Food and Beverages Box and Sticker Labels, Pharmaceuticals Label,
+                    Boxes, and Cosmetic Boxes in customized sizes.
+                </p>
+    
+            </div>
+        </div>
+    </section>
+    
+    <section class="section hero" id="Mission & vision" data-aos="fade-up" style="background-image: url('6530.jpg'); background-size: cover; background-position: center;">
+      <div class="hero-content">
+  
+          <div class="row">
+              <div class="col-12 text-center">
+                  <div class="btn-group">
+                      <button class="btn btn-primary toggle-btn" data-target="mission">Our Mission</button>
+                      <button class="btn btn-secondary toggle-btn" data-target="vision">Our Vision</button>
+                  </div>
+              </div>
+          </div>
+  
+          <div id="mission-content" class="content-section text-center show" style="margin-top: 5rem;">
+              <h2 class="h2 hero-title">Mission</h2>
+              
+              <p class="section-text" style="text-align: justify;">
+                  OUR MISSION our mission is to deliver innovative, sustainable, and high-quality mono carton packaging
+                  solutions that meet the unique needs of our customers across various industries. We are committed to
+                  excellence in design, production, and customer service, ensuring that our products not only protect and
+                  showcase our clients' products but also contribute to a greener future. Through continuous innovation,
+                  ethical practices, and a passion for packaging, we strive to be a trusted partner in our clients' success.
+              </p>
+              <p class="section-text" style="text-align: justify; margin-top: 4rem;">
+                  This mission emphasizes:
+              </p>
+              <p class="section-text" style="text-align: justify;">
+                  Innovation: Focus on creating advanced and creative packaging solutions.<br>
+                  Sustainability: Commitment to environmentally friendly practices and products.<br>
+                  Quality: Ensuring top-notch production standards.<br>
+                  Customer Focus: Tailoring solutions to meet the specific needs of your clients.<br>
+                  Partnership: Building long-term, trust-based relationships with customers.
+              </p>
           </div>
           
-          
-      </section>
-      <section class="section hero" id="Mission & vision">
-      <div class="hero-content">
-            
-
-        <h2 class="h2 hero-title">Mission</h2>
-
-        <p class="section-text">
-          Our mission is to carry out our guiding values centered on growing and empowering our team members. Consequently, our team will establish valuable, trustworthy, and long-term connections with customers and suppliers.
-        </p>
-
-        <h2 class="h2 hero-title">Vision</h2>
-
-        <p class="section-text">
-          Our vision is to be one of the top corrugated box and paper bag manufacturers in the market by providing packaging brilliance defined by excellent quality, unequalled service, continuous improvement, and innovative approach.
-        </p>
-
-        
-
-       
-    </div>
+          <div id="vision-content" class="content-section text-center" style="margin-top: 5rem;">
+              <h2 class="h2 hero-title">Vision</h2>
+              <p class="section-text" style="text-align: justify;">
+                  Our vision is to become a global leader in sustainable packaging solutions by embracing cutting-edge
+                  technology and innovation. We aspire to revolutionize the packaging industry by creating eco-friendly,
+                  high-performance packaging that reduces environmental impact while enhancing product safety and appeal.
+                  Through strategic partnerships, continuous research and development, and a commitment to social
+                  responsibility, we aim to expand our market presence, adapt to evolving consumer needs, and set new
+                  industry standards for quality and sustainability. We envision a future where our packaging solutions
+                  contribute to a circular economy, ensuring a greener planet for generations to come.
+              </p>
+              <p class="section-text" style="text-align: justify;margin-top: 4rem;">
+                  This vision focuses on:
+              </p>
+              <p class="section-text" style="text-align: justify;">
+                  Global Leadership: Aspiring to be a leading company in the global market.<br>
+                  Innovation: Continuously improving and adopting new technologies.<br>
+                  Sustainability: Prioritizing eco-friendly practices and contributing to a circular economy.<br>
+                  Quality and Performance: Maintaining high standards in packaging solutions.<br>
+                  Strategic Growth: Expanding the company's reach and influence through strategic initiatives.
+              </p>
+          </div>
+      </div>
   </section>
+  
 
 
       <!-- 
         - #SERVICE
       -->
-
-      <section class="section service" id="services">
-        <div class="container">
-
-          <h2 class="h2 hero-title">Our Solutions For You</h2>
-
-          <p class="section-text">
-            Leading manufacturer specializing in pharmaceutical labels, mono carton boxes, and inserts, delivering high-quality, customized packaging solutions for the pharmaceutical industry with a focus on precision and compliance
-          </p>
-
-          <ul class="service-list">
-
-            <li>
-              <div class="service-card">
-
-                <figure class="card-banner">
-                  <img src="./assets/images/service-1.gif" width="728" height="344" loading="lazy" alt="support"
-                    class="w-100">
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3">
-                    <a href="about us/about Us.html" class="card-title">Mono Carton Box</a>
-                  </h3>
-
-                  <p class="card-text">
-                    We are a leading manufacturer of premium mono carton boxes, providing durable, customized packaging solutions for various industries. Our products ensure quality, reliability, and tailored fit for every need.
-                  </p>
-
-                  <a href="about us/about Us.html" class="btn-link">
-                    <span class="span">Learn More</span>
-
-                    <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-                  </a>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="service-card">
-
-                <figure class="card-banner">
-                  <img src="./assets/images/service-2.gif" width="728" height="344" loading="lazy" alt="Engagement"
-                    class="w-100">
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3">
-                    <a href="about us/about Us.html" class="card-title">Pharmaceuticals Labels</a>
-                  </h3>
-
-                  <p class="card-text">
-                    Trusted manufacturer of pharmaceutical labels, providing accurate, high-quality labeling solutions to ensure safety and compliance in the healthcare industry.
-                  </p>
-
-                  <a href="about us/about Us.html" class="btn-link">
-                    <span class="span">Learn More</span>
-
-                    <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-                  </a>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="service-card">
-
-                <figure class="card-banner">
-                  <img src="./assets/images/service-3.gif" width="728" height="344" loading="lazy" alt="Marketing"
-                    class="w-100">
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3">
-                    <a href="about us/about Us.html" class="card-title">Pharmaceutical Package Insert</a>
-                  </h3>
-
-                  <p class="card-text">
-                    Trusted manufacturer of high-quality pharmaceutical package inserts, ensuring accurate information delivery and compliance with industry standards.
-                  </p>
-
-                  <a href="about us/about Us.html" class="btn-link">
-                    <span class="span">Learn More</span>
-
-                    <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-                  </a>
-
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
+      <section class="section service" id="services" data-aos="fade-up" style="background-image: url('5590822.jpg'); background-size: cover; background-position: center;">
+        <div class="container" data-aos="fade-up">
+    
+            <h2 class="h2 hero-title" style="text-align: center;" data-aos="fade-up">Our Solutions For You</h2>
+    
+            <p class="section-text" style="text-align: center;" data-aos="fade-down">
+                Leading manufacturer specializing in pharmaceutical labels, mono carton boxes, and inserts, delivering
+                high-quality, customized packaging solutions for the pharmaceutical industry with a focus on precision and
+                compliance.
+            </p>
+    
+            <ul class="service-list" style="margin-top: 4rem;">
+    
+                <li>
+                    <div class="service-card" data-aos="fade-up">
+    
+                        <figure class="card-banner">
+                            <img src="Pharma box.jpeg" width="728" height="344" loading="lazy" alt="support" class="w-100">
+                        </figure>
+    
+                        <div class="card-content">
+    
+                            <h3 class="h3">
+                                <a href="about us/about Us.html" class="card-title">Mono Carton Box</a>
+                            </h3>
+    
+                            <p style="text-align: justify;line-height: 1.6;">
+                                We are a leading manufacturer of premium mono carton boxes, providing durable, customized packaging
+                                solutions for various industries. Our products ensure quality, reliability, and tailored fit for
+                                every need.
+                            </p>
+    
+                            <a href="about us/about Us.html" class="btn-link">
+                                <span class="span">Learn More</span>
+    
+                                <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                            </a>
+    
+                        </div>
+    
+                    </div>
+                </li>
+    
+                <li>
+                    <div class="service-card" data-aos="fade-up">
+    
+                        <figure class="card-banner">
+                            <img src="sticker.jpeg" width="728" height="344" loading="lazy" alt="Engagement" class="w-100">
+                        </figure>
+    
+                        <div class="card-content">
+    
+                            <h3 class="h3">
+                                <a href="about us/about Us.html" class="card-title">Pharmaceuticals Labels</a>
+                            </h3>
+    
+                            <p style="text-align: justify;line-height: 1.6;">
+                                Trusted manufacturer of pharmaceutical labels, providing accurate, high-quality labeling solutions
+                                to ensure safety and compliance in the healthcare industry.
+                            </p>
+    
+                            <a href="about us/about Us.html" class="btn-link">
+                                <span class="span">Learn More</span>
+    
+                                <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                            </a>
+    
+                        </div>
+    
+                    </div>
+                </li>
+    
+                <li>
+                    <div class="service-card" data-aos="fade-up">
+    
+                        <figure class="card-banner">
+                            <img src="Pharma-inserts.jpeg" width="728" height="344" loading="lazy" alt="Marketing" class="w-100">
+                        </figure>
+    
+                        <div class="card-content">
+    
+                            <h3 class="h3">
+                                <a href="about us/about Us.html" class="card-title">Pharmaceutical Package Insert</a>
+                            </h3>
+    
+                            <p style="text-align: justify;line-height: 1.6;">
+                                Trusted manufacturer of high-quality pharmaceutical package inserts, ensuring accurate information
+                                delivery and compliance with industry standards.
+                            </p>
+    
+                            <a href="about us/about Us.html" class="btn-link">
+                                <span class="span">Learn More</span>
+    
+                                <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                            </a>
+    
+                        </div>
+    
+                    </div>
+                </li>
+    
+            </ul>
+    
         </div>
-      </section>
-
-
+    </section>
+    
 
 
 
@@ -251,79 +440,79 @@
         - #FEATURES
       -->
 
-      <section class="section features" id="features">
+      <section class="section features" id="features" data-aos="fade-up">
         <div class="container">
 
           <div class="features-content">
 
-            <h2 class="h2 hero-title">Our USP</h2>
+            <h2 class="h2 hero-title" style="text-align: center;" data-aos="fade-up">Our USP</h2>
 
             <ul class="features-list">
 
-              <li class="features-item">
+              <li class="features-item" data-aos="fade-up">
                 <img src="./assets/images/check-circle.svg" width="26" height="26" loading="lazy" aria-hidden="true"
                   class="item-icon">
 
                 <h3 class="item-title">Over 2 years industry Experience</h3>
               </li>
 
-              <li class="features-item">
+              <li class="features-item" data-aos="fade-up">
                 <img src="./assets/images/check-circle.svg" width="26" height="26" loading="lazy" aria-hidden="true"
                   class="item-icon">
 
                 <h3 class="item-title">Diversified Market Experience</h3>
               </li>
 
-              <li class="features-item">
+              <li class="features-item" data-aos="fade-up">
                 <img src="./assets/images/check-circle.svg" width="26" height="26" loading="lazy" aria-hidden="true"
                   class="item-icon">
 
                 <h3 class="item-title">Systematic Timely Deliveries</h3>
               </li>
 
-              <li class="features-item">
+              <li class="features-item" data-aos="fade-up">
                 <img src="./assets/images/check-circle.svg" width="26" height="26" loading="lazy" aria-hidden="true"
                   class="item-icon">
 
                 <h3 class="item-title">Multi-Step Quality Check</h3>
               </li>
 
-              <li class="features-item">
+              <li class="features-item" data-aos="fade-up">
                 <img src="./assets/images/check-circle.svg" width="26" height="26" loading="lazy" aria-hidden="true"
                   class="item-icon">
 
                 <h3 class="item-title">Scientific Approach</h3>
               </li>
 
-              <li class="features-item">
+              <li class="features-item" data-aos="fade-up">
                 <img src="./assets/images/check-circle.svg" width="26" height="26" loading="lazy" aria-hidden="true"
                   class="item-icon">
 
                 <h3 class="item-title">Skilled Professional Operators</h3>
               </li>
 
-              <li class="features-item">
+              <li class="features-item" data-aos="fade-up">
                 <img src="./assets/images/check-circle.svg" width="26" height="26" loading="lazy" aria-hidden="true"
                   class="item-icon">
 
                 <h3 class="item-title">Value Addition through Research</h3>
               </li>
 
-              <li class="features-item">
+              <li class="features-item" data-aos="fade-up">
                 <img src="./assets/images/check-circle.svg" width="26" height="26" loading="lazy" aria-hidden="true"
                   class="item-icon">
 
                 <h3 class="item-title">Reasonable Product Pricing</h3>
               </li>
 
-              <li class="features-item">
+              <li class="features-item" data-aos="fade-up">
                 <img src="./assets/images/check-circle.svg" width="26" height="26" loading="lazy" aria-hidden="true"
                   class="item-icon">
 
                 <h3 class="item-title">Excellent After-Sales Services</h3>
               </li>
 
-              <li class="features-item">
+              <li class="features-item" data-aos="fade-up">
                 <img src="./assets/images/check-circle.svg" width="26" height="26" loading="lazy" aria-hidden="true"
                   class="item-icon">
 
@@ -334,11 +523,10 @@
 
           </div>
 
-          <div class="banner-wrapper">
+          <div class="banner-wrapper" >
 
             <figure class="features-banner one">
-              <img src="G.jpg" width="600" height="500" loading="lazy"
-                alt="features image" class="w-100">
+              <img src="G.jpg " width="600" height="500" loading="lazy" alt="features image" class="w-100">
             </figure>
 
           </div>
@@ -353,148 +541,149 @@
       <!-- 
         - #ABOUT
       -->
-
-      <section class="section about" id="about">
+      <section class="section about" id="about" data-aos="fade-up" style="background-image: url('6530.jpg'); background-size: cover; background-position: center;">
         <div class="container">
-
-          <h2 class="h2 hero-title">What We Do</h2>
-
-          <p class="section-text">
-            Versatile consumer product packaging solutions: corrugated boxes, paper board cartons, rigid boxes, custom sticker labels and Pharmaceuticals insert
-
-          <ul class="about-list">
-
-            <li>
-              <div class="about-card about-card-1">
-
-                <figure class="card-banner">
-                  <img src="./assets/images/about-img-1.svg" width="94" height="94" loading="lazy"
-                    alt="Consumer Product Packaging">
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3">
-                    <a href="about us/about Us.html" class="card-title">Consumer Product Packaging</a>
-                  </h3>
-
-                  <p class="card-text">
-                    Expert manufacturer of consumer product packaging boxes, delivering durable, customized solutions to enhance brand presentation and protection.
-                  </p>
-
-                  <a href="about us/about Us.html" class="btn-link">
-                    <span class="span">Learn More</span>
-
+    
+            <h2 class="h2 hero-title" data-aos="fade-up">What We Do</h2>
+    
+            <p class="section-text" data-aos="fade-down">
+                Versatile consumer product packaging solutions: corrugated boxes, paper board cartons, rigid boxes, custom
+                sticker labels and Pharmaceuticals insert
+            </p>
+    
+            <ul class="about-list">
+    
+                <li>
+                    <div class="about-card about-card-1">
+    
+                        <figure class="card-banner">
+                            <img src="./assets/images/about-img-1.svg" width="94" height="94" loading="lazy" alt="Consumer Product Packaging">
+                        </figure>
+    
+                        <div class="card-content">
+    
+                            <h3 class="h3">
+                                <a href="about us/about Us.html" class="card-title">Consumer Product Packaging</a>
+                            </h3>
+    
+                            <p class="card-text">
+                                Expert manufacturer of consumer product packaging boxes, delivering durable, customized solutions to
+                                enhance brand presentation and protection.
+                            </p>
+    
+                            <a href="about us/about Us.html" class="btn-link">
+                                <span class="span">Learn More</span>
+    
+                                <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                            </a>
+    
+                        </div>
+    
+                    </div>
+                </li>
+    
+                <li>
+                    <div class="about-card about-card-2">
+    
+                        <figure class="card-banner">
+                            <img src="./assets/images/about-img-2.svg" width="94" height="94" loading="lazy" alt="Printed Corrugated Boxes">
+                        </figure>
+    
+                        <div class="card-content">
+    
+                            <h3 class="h3">
+                                <a href="about us/about Us.html" class="card-title">Printed Corrugated Boxes</a>
+                            </h3>
+    
+                            <p class="card-text">
+                                High-quality printed corrugated boxes tailored to your needs—durable, customizable, and eco-friendly
+                                for all your packaging requirements.
+                            </p>
+    
+                            <a href="about us/about Us.html" class="btn-link">
+                                <span class="span">Learn More</span>
+    
+                                <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                            </a>
+    
+                        </div>
+    
+                    </div>
+                </li>
+    
+                <li>
+                    <div class="about-card about-card-3">
+    
+                        <figure class="card-banner">
+                            <img src="./assets/images/about-img-3.svg" width="94" height="94" loading="lazy" alt="Paper Board Cartons">
+                        </figure>
+    
+                        <div class="card-content">
+    
+                            <h3 class="h3">
+                                <a href="about us/about Us.html" class="card-title">Paper Board Cartons</a>
+                            </h3>
+    
+                            <p class="card-text">
+                                Premium paperboard cartons designed for durability and style—ideal for safe, sustainable, and
+                                customizable packaging solutions for any industry.
+                            </p>
+    
+                            <a href="about us/about Us.html" class="btn-link">
+                                <span class="span">Learn More</span>
+    
+                                <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                            </a>
+    
+                        </div>
+    
+                    </div>
+                </li>
+    
+                <li>
+                    <div class="about-card about-card-4">
+    
+                        <figure class="card-banner">
+                            <img src="./assets/images/about-img-4.svg" width="94" height="94" loading="lazy" alt="Rigid Boxes">
+                        </figure>
+    
+                        <div class="card-content">
+    
+                            <h3 class="h3">
+                                <a href="about us/about Us.html" class="card-title">Rigid Boxes</a>
+                            </h3>
+    
+                            <p class="card-text">
+                                Elegant and durable rigid boxes crafted for premium packaging—providing a sophisticated, protective
+                                solution for your high-end products.
+                            </p>
+    
+                            <a href="about us/about Us.html" class="btn-link">
+                                <span class="span">Learn More</span>
+    
+                                <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                            </a>
+    
+                        </div>
+    
+                    </div>
+                </li>
+    
+            </ul>
+    
+            <p class="section-text" data-aos="fade-down">
+                Versatile consumer product packaging solutions: corrugated boxes, paper board cartons, rigid boxes, and
+                custom sticker labels. This type of more information please check
+                <a href="about us/about Us.html" class="btn-link">
+                    <span class="span">View All Features</span>
+    
                     <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-                  </a>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="about-card about-card-2">
-
-                <figure class="card-banner">
-                  <img src="./assets/images/about-img-2.svg" width="94" height="94" loading="lazy"
-                    alt="Printed Corrugated Boxes">
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3">
-                    <a href="about us/about Us.html" class="card-title">Printed Corrugated Boxes</a>
-                  </h3>
-
-                  <p class="card-text">
-                    High-quality printed corrugated boxes tailored to your needs—durable, customizable, and eco-friendly for all your packaging requirements.
-                  </p>
-
-                  <a href="about us/about Us.html" class="btn-link">
-                    <span class="span">Learn More</span>
-
-                    <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-                  </a>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="about-card about-card-3">
-
-                <figure class="card-banner">
-                  <img src="./assets/images/about-img-3.svg" width="94" height="94" loading="lazy"
-                    alt="Paper Board Cartons">
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3">
-                    <a href="about us/about Us.html" class="card-title">Paper Board Cartons</a>
-                  </h3>
-
-                  <p class="card-text">
-                    Premium paperboard cartons designed for durability and style—ideal for safe, sustainable, and customizable packaging solutions for any industry
-                  </p>
-
-                  <a href="about us/about Us.html" class="btn-link">
-                    <span class="span">Learn More</span>
-
-                    <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-                  </a>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="about-card about-card-4">
-
-                <figure class="card-banner">
-                  <img src="./assets/images/about-img-4.svg" width="94" height="94" loading="lazy"
-                    alt="Rigid Boxes">
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3">
-                    <a href="about us/about Us.html" class="card-title">Rigid Boxes</a>
-                  </h3>
-
-                  <p class="card-text">
-                    Elegant and durable rigid boxes crafted for premium packaging—providing a sophisticated, protective solution for your high-end products.
-                  </p>
-
-                  <a href="about us/about Us.html" class="btn-link">
-                    <span class="span">Learn More</span>
-
-                    <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-                  </a>
-
-                </div>
-
-                
-
-              </div>
-            </li>
-
-          </ul>
-
-          <p class="section-text">
-            Versatile consumer product packaging solutions: corrugated boxes, paper board cartons, rigid boxes, and custom sticker labels. This type of more information please check
-            <a href="about us/about Us.html" class="btn-link">
-              <span class="span">View All Features</span>
-
-              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-            </a>
-          </p>
-
+                </a>
+            </p>
+    
         </div>
-      </section>
+    </section>
+    
 
 
 
@@ -503,51 +692,51 @@
       <!-- 
         - #STATS
       -->
-      <section class="section features" id="Our Valuable Clients">
+      <section class="section features" id="Our Valuable Clients" data-aos="fade-up">
         <div class="container">
 
           <div class="features-content">
 
-            <h2 class="h2 hero-title">Our Valuable Clients</h2>
+            <h2 class="h2 hero-title" data-aos="fade-up">Our Valuable Clients</h2>
 
             <ul class="features-list">
 
-              <li class="features-item">
+              <li class="features-item" data-aos="fade-up">
                 <img src="./assets/images/check-circle.svg" width="26" height="26" loading="lazy" aria-hidden="true"
                   class="item-icon">
 
                 <h3 class="item-title">Realcade Lifescience Pvt Ltd</h3>
               </li>
 
-              <li class="features-item">
+              <li class="features-item" data-aos="fade-up">
                 <img src="./assets/images/check-circle.svg" width="26" height="26" loading="lazy" aria-hidden="true"
                   class="item-icon">
 
                 <h3 class="item-title">Antila Lifescience Pvt Ltd</h3>
               </li>
 
-              <li class="features-item">
+              <li class="features-item" data-aos="fade-up">
                 <img src="./assets/images/check-circle.svg" width="26" height="26" loading="lazy" aria-hidden="true"
                   class="item-icon">
 
                 <h3 class="item-title">Antila Wellness Pvt Ltd</h3>
               </li>
 
-              <li class="features-item">
+              <li class="features-item" data-aos="fade-up">
                 <img src="./assets/images/check-circle.svg" width="26" height="26" loading="lazy" aria-hidden="true"
                   class="item-icon">
 
                 <h3 class="item-title">Sanjar Pharma</h3>
               </li>
 
-              <li class="features-item">
+              <li class="features-item" data-aos="fade-up">
                 <img src="./assets/images/check-circle.svg" width="26" height="26" loading="lazy" aria-hidden="true"
                   class="item-icon">
 
                 <h3 class="item-title">Espee Pharma</h3>
               </li>
 
-              <li class="features-item">
+              <li class="features-item" data-aos="fade-up">
                 <img src="./assets/images/check-circle.svg" width="26" height="26" loading="lazy" aria-hidden="true"
                   class="item-icon">
 
@@ -558,7 +747,7 @@
 
           </div>
 
-          <div class="banner-wrapper">
+          <div class="banner-wrapper" >
 
             <figure class="features-banner one">
               <img src="hero-banner.png" alt="banner" class="banner">
@@ -574,20 +763,20 @@
         - #SUPPORT
       -->
 
-      <section class="section support">
+      <section class="section support" data-aos="fade-up">
         <div class="container">
 
           <div class="support-content">
-            <h2 class="h2 hero-title">24/7 Customer Support</h2>
+            <h2 class="h2 hero-title" data-aos="fade-down">24/7 Customer Support</h2>
 
-            <p class="section-text">
+            <p class="section-text" data-aos="fade-up">
               Our team is here to provide you with personalized and outstanding service. We also offer a range of
               self-learning tools
               in our support center:
             </p>
           </div>
 
-          <a href="https://web.whatsapp.com/" class="btn btn-primary">Contact Us Now</a>
+          <a href="https://web.whatsapp.com/" class="btn btn-primary" >Contact Us Now</a>
 
         </div>
       </section>
@@ -596,7 +785,7 @@
         - CONTACT
       -->
 
-      
+
     </article>
   </main>
 
@@ -608,7 +797,7 @@
     - #FOOTER
   -->
 
-  <footer class="footer">
+ <footer class="footer" data-aos="fade-up">
 
     <div class="footer-top section">
       <div class="container">
@@ -618,8 +807,8 @@
           <img src="maxxpack-logo.png" alt="Maxxpack Logo" class="logo">
 
           <figure class="footer-img">
-            <img src="MAXXPACK ALL IN ONE PACKAGING SOLUTION.png" width="604" height="626" loading="lazy" aria-hidden="true"
-              class="w-100">
+            <img src="MAXXPACK ALL IN ONE PACKAGING SOLUTION.png" width="604" height="626" loading="lazy"
+              aria-hidden="true" class="w-100">
           </figure>
         </div>
 
@@ -683,7 +872,7 @@
           </li>
 
           <li>
-            <a href="Blog/Blog.html" class="footer-link">Blog</a>
+            <a href="Blog page/index.html" class="footer-link">Blog</a>
           </li>
 
           <li>
@@ -712,7 +901,8 @@
 
             <span class="span">
               Address:
-              <a href="https://maps.app.goo.gl/NreXvSZCKwafqNsJ7" class="footer-item-link">D/14 GOLDEN INDUSTRIAL ESTATE KADI-CHHATRAL ROAD, CHHATRAL, KALOL, GUJARAT-382729</a>
+              <a href="https://maps.app.goo.gl/NreXvSZCKwafqNsJ7" class="footer-item-link">D/14 GOLDEN INDUSTRIAL ESTATE
+                KADI-CHHATRAL ROAD, CHHATRAL, KALOL, GUJARAT-382729</a>
             </span>
           </li>
 
@@ -778,6 +968,25 @@
   <!-- 
     - custom js link
   -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const buttons = document.querySelectorAll('.toggle-btn');
+      const contentSections = document.querySelectorAll('.content-section');
+
+      buttons.forEach(button => {
+        button.addEventListener('click', function () {
+          const targetId = this.getAttribute('data-target');
+          contentSections.forEach(section => {
+            section.classList.remove('show');
+          });
+          document.getElementById(`${targetId}-content`).classList.add('show');
+        });
+      });
+
+      // Show the first section by default
+      document.querySelector('.toggle-btn').click();
+    });
+  </script>
   <script src="./assets/js/script.js" defer></script>
 
   <!-- 
@@ -785,7 +994,16 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    // Initialize AOS with desired configuration
+    AOS.init({
+      offset: 120,    // Offset (in px) from the original trigger point
+      delay: 0,       // Values from 0 to 3000, with step 50ms
+      duration: 1000,  // Values from 0 to 3000, with step 50ms
+      // Easing function for animations
+    });
+  </script>
 </body>
 
 </html>

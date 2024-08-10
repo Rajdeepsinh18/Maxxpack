@@ -1602,3 +1602,88 @@ textarea.input-field {
 .h1, .h2, .h3 {
   animation: fadeIn 1s ease-out;
 }
+.contact {
+  padding: 5rem 0;
+  background-color: #f8f9fa;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.section-text {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.contact-form {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-wrapper label {
+  font-weight: bold;
+}
+
+.form-control {
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.contact-list {
+  padding: 0;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #333;
+  text-decoration: none;
+}
+
+.contact-link ion-icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.contact-link span {
+  margin-left: 0.5rem;
+}
+
+.contact-link address {
+  font-style: normal;
+  margin-left: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    flex-direction: column;
+  }
+
+  .contact-form {
+    margin-bottom: 2rem;
+  }
+
+  .contact-list {
+    text-align: center;
+  }
+}

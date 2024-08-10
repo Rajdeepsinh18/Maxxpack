@@ -335,6 +335,76 @@ body {
 
 
 
+.nav-toggle-btn {
+  display: block; /* Ensure the button is visible */
+  font-size: 30px;
+  cursor: pointer;
+  background: none; /* Remove default button background */
+  border: none; /* Remove default button border */
+}
+
+.menu-icon {
+  display: block;
+}
+
+.close-icon {
+  display: none;
+}
+.nav-toggle-btn.active .menu-icon,
+.nav-toggle-btn .close-icon {
+    display: none;
+}
+
+.nav-toggle-btn .menu-icon,
+.nav-toggle-btn.active .close-icon {
+    display: block;
+}
+/* Navbar Styles */
+.navbar {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: calc(100% - 30px);
+  transform: translateX(-50%);
+  background-color: var(--white-1);
+  box-shadow: var(--shadow-2);
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  max-height: 0;
+  visibility: hidden;
+  transition: max-height 0.35s var(--cubic-out), visibility 0.35s var(--cubic-out);
+}
+/* Navigation Toggle Button Styles */
+.nav-toggle-btn {
+  font-size: 30px;
+  transition: color 0.3s ease;
+  position: relative; /* Ensure the button can contain the icons */
+}
+
+/* Hide the close icon by default */
+.nav-toggle-btn .close-icon {
+  display: none;
+}
+
+/* Display the menu icon by default */
+.nav-toggle-btn .menu-icon {
+  display: inline;
+}
+
+/* When the button is active, switch the icons */
+.nav-toggle-btn.active .menu-icon {
+  display: none;
+}
+
+.nav-toggle-btn.active .close-icon {
+  display: inline;
+}
+
+
+.navbar.active {
+  visibility: visible;
+  max-height: 300px; /* Adjust max-height based on your content */
+}
 
 /*-----------------------------------*\
   #HERO
@@ -376,13 +446,10 @@ body {
 /* Hero Form */
 .hero-form {
   margin-block: 20px 30px;
-  animation: fade-in 0.5s ease-out;
+  
 }
 
-@keyframes fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
+
 
 /* Input Field */
 .input-field {
@@ -446,14 +513,11 @@ body {
 /* Section Title and Text */
 .service :is(.section-title, .section-text) {
   text-align: fixed;
-  animation: fade-in 0.5s ease-out;
+
   
 }
 
-@keyframes fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
+
 
 /* Service List */
 .service-list {
@@ -511,7 +575,6 @@ body {
   margin-block: 10px 20px;
   line-height: 1.8;
   opacity: 0; /* Initially hidden */
-  animation: fade-in 0.5s ease-out 0.5s forwards;
 }
 
 /* Button Link */
@@ -537,7 +600,7 @@ body {
   padding-block: var(--section-padding);
   
   /* Adding background image */
-  background-image: url('object-6-1.png'); /* Replace with your image path */
+  background-image: url('object-6-1.png');
   background-size: cover; /* Adjusts the size of the image */
   background-repeat: no-repeat; /* Prevents the image from repeating */
   background-position: center; /* Centers the image */
@@ -547,14 +610,7 @@ body {
 }
 
 /* Keyframes for fading in the background */
-@keyframes fadeInBackground {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+
 
 /* Keyframes for sliding in the content */
 @keyframes slideInContent {
@@ -577,7 +633,7 @@ body {
 /* Section Text */
 .features .section-text {
   margin-block: 10px 15px;
-  animation: fade-in 0.5s ease-out;
+ 
 }
 
 /* Features Content */
@@ -586,10 +642,7 @@ body {
   animation: slide-up 0.6s var(--cubic-out) forwards;
 }
 
-@keyframes slide-up {
-  0% { transform: translateY(20px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
-}
+
 
 /* Features Item */
 .features-item {
@@ -1657,11 +1710,10 @@ textarea.input-field {
 }
 
 
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
 
-.h1, .h2, .h3 {
-  animation: fadeIn 1s ease-out;
-}
+
+
+
+
+
+
