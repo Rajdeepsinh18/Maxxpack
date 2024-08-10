@@ -1,185 +1,129 @@
-@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
+:root {
+    --logo-width: 300px;
+    --spin-speed: 1.3s;
+}
 
+/* Resetting default styles */
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
+/* Body styles */
 body {
-  font-family: "Michroma", sans-serif;
-  height: 100vh; /* Changed to 100vh for full height */
-  margin: 0;
-  overflow: hidden; /* Hide scrollbars */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: #27ae60;
+    background-color: #ecf0f1;
+    cursor: default;
+    background-image: url('6530.jpg');
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.5s ease-in-out;
 }
 
-.Raj {
-  background-color: black;
-  color: #fff;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+/* Preloader styles */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: rgba(9, 12, 49, 0.8); /* Slightly transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
 }
 
-/* Loading Page Styles */
-.loading-page {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
-  background-image: url('box3.jpg');
-  background-size: cover; /* Ensures the image covers the entire container */
-  background-position: center; /* Centers the image within the container */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  height: 100vh; /* Sets the height of the banner to full viewport height */
-  width: 100%; /* Sets the width of the banner to full viewport width */
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: center;
-  justify-content: center;
-  color: #191654;
-  animation: backgroundAnimation 15s ease infinite; /* Background animation */
-}
-
-/* Background Animation Keyframes */
-@keyframes backgroundAnimation {
-  0% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 100% 100%;
-  }
-  100% {
-    background-position: 0% 0%;
-  }
-}
-
-.svg {
-  height: 150px;
-  width: 150px;
-  stroke: white;
-  fill-opacity: 0;
-  stroke-width: 3px;
-  stroke-dasharray: 4500;
-  animation: draw 8s ease infinite; /* Infinite animation loop */
-}
-
-/* SVG Drawing Animation */
-@keyframes draw {
-  0% {
-    stroke-dashoffset: 4500;
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-
-/* Hover Effect for SVG */
-.svg:hover {
-  animation: draw 4s ease-in-out; /* Faster animation on hover */
-  stroke: #f20a0a; /* Change stroke color on hover */
-}
-
-/* Name Raj Styles */
-.name-Raj {
-  height: 30px;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-/* Logo Name Styles */
-.logo-name {
-  color: #f20a0a;
-  font-size: 20px;
-  letter-spacing: 12px;
-  text-transform: uppercase;
-  margin-left: 20px;
-  font-weight: bolder;
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-  animation: textAnimation 2s ease forwards; /* Text animation */
-  white-space: nowrap; /* Prevent text from wrapping */
-}
-
-/* Text Animation Keyframes */
-@keyframes textAnimation {
-  0% {
-    transform: translateY(100%);
+.preloader--invisible {
     opacity: 0;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }
 
-/* Hover Effect for Logo Name */
-.logo-name:hover {
-  color: #fff; /* Change text color on hover */
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Add text shadow on hover */
-  transform: scale(1.1); /* Slightly scale up on hover */
-  transition: all 0.3s ease; /* Smooth transition */
+.preloader--hidden {
+    visibility: hidden;
 }
 
-/* Responsive Design Adjustments */
+.preloader__logo {
+    width: var(--logo-width);
+    padding-bottom: 10px;
+    background: url('logo.svg') no-repeat center;
+    background-size: 40%;
+}
+
+.preloader__circle {
+    border-top: 2px solid #fff;
+    border-radius: 50%;
+    width: calc(var(--logo-width) + 10px);
+    height: calc(var(--logo-width) + 10px);
+    animation: preloader-spin var(--spin-speed) linear infinite;
+}
+
+@keyframes preloader-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    body {
+        font-size: 18px; /* Slightly smaller font size for medium screens */
+    }
+}
+
+@media (max-width: 992px) {
+    body {
+        font-size: 16px; /* Smaller font size for large tablets */
+    }
+
+    .preloader__logo {
+        width: 250px; /* Adjust logo size */
+    }
+
+    .preloader__circle {
+        width: calc(250px + 10px);
+        height: calc(250px + 10px);
+    }
+}
+
 @media (max-width: 768px) {
-  .logo-name {
-    font-size: 18px;
-    letter-spacing: 8px;
-  }
+    body {
+        font-size: 14px; /* Smaller font size for tablets and mobile devices */
+    }
 
-  .svg {
-    height: 120px;
-    width: 120px;
-  }
+    .preloader__logo {
+        width: 200px; /* Adjust logo size */
+    }
 
-  .loading-page {
-    padding: 1rem; /* Add padding for better alignment on smaller screens */
-  }
+    .preloader__circle {
+        width: calc(200px + 10px);
+        height: calc(200px + 10px);
+    }
 }
 
-@media (max-width: 480px) {
-  .logo-name {
-    font-size: 14px;
-    letter-spacing: 2px;
-    margin-left: 0; /* Remove margin to fit text in one line */
-  }
+@media (max-width: 576px) {
+    body {
+        font-size: 12px; /* Even smaller font size for very small screens */
+    }
 
-  .svg {
-    height: 80px;
-    width: 80px;
-  }
+    .preloader__logo {
+        width: 150px; /* Adjust logo size */
+    }
 
-  .loading-page {
-    gap: 0.3rem;
-  }
+    .preloader__circle {
+        width: calc(150px + 10px);
+        height: calc(150px + 10px);
+    }
 }
-
-@media (max-width: 320px) {
-  .logo-name {
-    font-size: 12px;
-    letter-spacing: 1px;
-    margin-left: 0; /* Remove margin to fit text in one line */
-  }
-
-  .svg {
-    height: 60px;
-    width: 60px;
-  }
-
-  .loading-page {
-    gap: 1rem; /* Reduce gap for smaller screens */
-  }
-}
-/* Ensure consistent scaling */
-
