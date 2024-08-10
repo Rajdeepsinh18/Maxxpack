@@ -4,11 +4,11 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
-    background-image: url('banner-bg.jpg'); /* Replace 'banner.jpg' with the path to your image */
-    background-size: cover; /* Ensures the background image covers the entire screen */
-    background-position: center; /* Centers the background image */
-    background-repeat: no-repeat; /* Prevents the background image from repeating */
-    animation: backgroundAnimation 30s linear infinite; /* Continuous background animation */
+    background-image: url('banner-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: backgroundAnimation 30s linear infinite;
 }
 
 /* Background Animation Keyframes */
@@ -26,16 +26,16 @@ body {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    opacity: 0; /* Initially hidden */
-    transform: scale(0.95); /* Slightly zoomed out */
+    opacity: 0;
+    transform: scale(0.95);
     animation: fadeInZoom 1.2s ease-out forwards;
 }
 
 /* Fade In and Zoom In Animation */
 @keyframes fadeInZoom {
     to {
-        opacity: 1; /* Fully visible */
-        transform: scale(1); /* Normal size */
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
@@ -49,16 +49,16 @@ body {
     text-align: center;
     margin-bottom: 20px;
     color: #011649;
-    opacity: 0; /* Initially hidden */
-    transform: translateY(-20px); /* Start position for slide down animation */
+    opacity: 0;
+    transform: translateY(-20px);
     animation: slideDownFadeIn 1s ease-out forwards;
 }
 
 /* Slide Down and Fade In Animation */
 @keyframes slideDownFadeIn {
     to {
-        transform: translateY(0); /* End position */
-        opacity: 1; /* Fully visible */
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 
@@ -68,16 +68,16 @@ body {
     margin-bottom: 40px;
     color: #011649;
     background-color: #f5f5f5;
-    opacity: 0; /* Initially hidden */
-    transform: translateY(20px); /* Start position for slide up animation */
+    opacity: 0;
+    transform: translateY(20px);
     animation: slideUpFadeIn 1s ease-out forwards;
 }
 
 /* Slide Up and Fade In Animation */
 @keyframes slideUpFadeIn {
     to {
-        transform: translateY(0); /* End position */
-        opacity: 1; /* Fully visible */
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 
@@ -87,8 +87,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    opacity: 0; /* Initially hidden for animation */
-    animation: fadeIn 1.5s ease-in-out forwards; /* Fade in animation for the list */
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
 }
 
 .features-item {
@@ -97,13 +97,12 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     padding: 20px;
-    width: calc(33% - 40px);
     box-sizing: border-box;
     text-align: center;
-    transform: translateY(50px); /* Start position for slide up animation */
-    opacity: 0; /* Initially hidden */
+    transform: translateY(50px);
+    opacity: 0;
     animation: slideUp 1s ease-out forwards;
-    animation-delay: calc(0.2s * var(--item-index)); /* Staggered animation */
+    animation-delay: calc(0.2s * var(--item-index));
 }
 
 /* Slide Up Animation */
@@ -119,48 +118,40 @@ body {
     margin-top: 15px;
     margin-bottom: 10px;
     color: #011649;
-    opacity: 0; /* Initially hidden */
-    transform: translateY(-20px); /* Start position for slide down animation */
+    opacity: 0;
+    transform: translateY(-20px);
     animation: slideDownFadeIn 0.8s ease-out forwards;
-    animation-delay: calc(0.3s * var(--item-index)); /* Staggered animation delay */
-}
-
-/* Fade In and Slide Up Animation */
-@keyframes slideDownFadeIn {
-    to {
-        transform: translateY(0); /* End position */
-        opacity: 1; /* Fully visible */
-    }
+    animation-delay: calc(0.3s * var(--item-index));
 }
 
 .features-item p {
     font-size: 1em;
     color: #011649;
-    opacity: 0; /* Initially hidden */
-    transform: translateY(20px); /* Start slightly lower */
-    animation: fadeInSlideUp 1.5s ease-out forwards; /* Apply animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 1.5s ease-out forwards;
 }
 
 /* Fade In and Slide Up Animation */
 @keyframes fadeInSlideUp {
     to {
-        opacity: 1; /* Fully visible */
-        transform: translateY(0); /* Normal position */
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
 .item-icon {
     margin-bottom: 10px;
-    opacity: 0; /* Initially hidden */
-    transform: scale(0.8); /* Start slightly smaller */
-    animation: scaleIn 1s ease-out forwards; /* Apply animation */
+    opacity: 0;
+    transform: scale(0.8);
+    animation: scaleIn 1s ease-out forwards;
 }
 
 /* Scale In Animation */
 @keyframes scaleIn {
     to {
-        opacity: 1; /* Fully visible */
-        transform: scale(1); /* Normal size */
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
@@ -170,51 +161,42 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    opacity: 0; /* Initially hidden */
-    transform: translateY(20px); /* Start slightly lower */
-    animation: fadeInSlideUp 1s ease-out forwards; /* Apply animation */
-}
-
-/* Fade In and Slide Up Animation */
-@keyframes fadeInSlideUp {
-    to {
-        opacity: 1; /* Fully visible */
-        transform: translateY(0); /* Normal position */
-    }
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 1s ease-out forwards;
 }
 
 .features-banner.one img,
 .features-banner.two img {
     max-width: 100%;
     border-radius: 8px;
-    border: 4px solid transparent; /* Initial border style */
-    transition: border-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transitions */
+    border: 4px solid transparent;
+    transition: border-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 /* Hover Effect */
 .features-banner.one img:hover,
 .features-banner.two img:hover {
-    border-color: #011649; /* Change to your desired color on hover */
-    transform: scale(1.05); /* Slight zoom on hover */
+    border-color: #011649;
+    transform: scale(1.05);
 }
 
 /* Animation for Border */
 @keyframes borderPulse {
     0% {
-        border-color: rgba(1, 22, 73, 0.5); /* Starting color (semi-transparent) */
+        border-color: rgba(1, 22, 73, 0.5);
     }
     50% {
-        border-color: rgba(1, 22, 73, 1); /* Midway color (full opacity) */
+        border-color: rgba(1, 22, 73, 1);
     }
     100% {
-        border-color: rgba(1, 22, 73, 0.5); /* Ending color (semi-transparent) */
+        border-color: rgba(1, 22, 73, 0.5);
     }
 }
 
-/* Apply Animation */
 .features-banner.one img,
 .features-banner.two img {
-    animation: borderPulse 2s infinite; /* Pulse effect with infinite loop */
+    animation: borderPulse 2s infinite;
 }
 
 /* Global Styles for Animations */
@@ -229,55 +211,18 @@ body {
     }
 }
 
-/* Responsive Design Animations */
-@media (max-width: 768px) {
-    .features-item {
-        width: calc(50% - 20px);
-        animation: fadeIn 0.6s ease-in-out; /* Fade-in effect for medium screens */
-    }
-
-    .banner-wrapper {
-        flex-direction: column;
-        animation: fadeIn 0.6s ease-in-out; /* Fade-in effect for banner wrapper */
-    }
-
-    .features-banner.one img,
-    .features-banner.two img {
-        margin-bottom: 20px;
-        animation: fadeIn 0.6s ease-in-out; /* Fade-in effect for banner images */
-    }
-}
-
-@media (max-width: 480px) {
-    .features-item {
-        width: 100%;
-        animation: fadeIn 0.6s ease-in-out; /* Fade-in effect for small screens */
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .container {
+        width: 95%;
     }
 
     .section-title {
-        font-size: 2em;
-        animation: fadeIn 0.6s ease-in-out; /* Fade-in effect for section title */
+        font-size: 2.2em;
     }
 
     .section-text {
-        font-size: 1em;
-        animation: fadeIn 0.6s ease-in-out; /* Fade-in effect for section text */
-    }
-}
-
-/* Additional Responsive Code */
-@media (max-width: 320px) {
-    .section-title {
-        font-size: 1.8em; /* Smaller font size for extra small screens */
-    }
-
-    .section-text {
-        font-size: 0.9em; /* Smaller font size for extra small screens */
-    }
-
-    .features-item {
-        padding: 15px;
-        animation: fadeIn 0.6s ease-in-out; /* Fade-in effect for extra small screens */
+        font-size: 1.1em;
     }
 }
 
@@ -289,37 +234,46 @@ body {
 
 @media (max-width: 768px) {
     .features-item {
-        width: calc(50% - 20px);
+        width: 100%;
+    }
+
+    .banner-wrapper {
+        flex-direction: column;
     }
 
     .features-banner.one img,
     .features-banner.two img {
-        width: 100%;
         margin-bottom: 20px;
+        animation: fadeIn 0.6s ease-in-out;
     }
 }
 
 @media (max-width: 480px) {
-    .features-item {
-        width: 100%;
-    }
-
-    .section-title {
-        font-size: 2em;
-    }
-
-    .section-text {
-        font-size: 1em;
-    }
-}
-
-@media (max-width: 320px) {
     .section-title {
         font-size: 1.8em;
     }
 
     .section-text {
-        font-size: 0.9em;
+        font-size: 1em;
+    }
+
+    .features-item {
+        padding: 15px;
+        animation: fadeIn 0.6s ease-in-out;
     }
 }
 
+@media (max-width: 320px) {
+    .section-title {
+        font-size: 1.6em;
+    }
+
+    .section-text {
+        font-size: 0.9em;
+    }
+
+    .features-item {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
