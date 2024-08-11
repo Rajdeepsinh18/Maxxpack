@@ -1019,7 +1019,7 @@ textarea.input-field {
 
 .footer-top {
   background-color: var(--cultured-1);
-  background-image: url('footer-background.png');
+  background-image: url('footer.jpg');
   background-repeat: no-repeat; /* Ensures the image doesn't repeat */
   background-size: cover; /* Ensures the image covers the entire footer */
   background-position: center; /* Centers the image */
