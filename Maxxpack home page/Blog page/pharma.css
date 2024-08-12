@@ -1,0 +1,122 @@
+/* General Styles */
+body {
+    background-image: url('5590822.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navigation */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-left img {
+    max-width: 100%;
+    height: auto;
+}
+
+.nav-left h1 {
+    font-size: 1.5em;
+    margin-left: 10px;
+}
+
+/* Blog Post Content */
+.blog-post-content {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.blogpost-meta {
+    margin-bottom: 20px;
+}
+
+.home-article {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.home-article-content {
+    flex: 1;
+}
+
+.home-article-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-top: 40px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .navigation {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-left h1 {
+        font-size: 1.2em;
+        margin: 10px 0;
+    }
+
+    .home-article {
+        flex-direction: column;
+    }
+
+    .home-article-content {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .home-article-img img {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .blog-post-content {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-left h1 {
+        font-size: 1em;
+    }
+
+    .home-article-img img {
+        width: 100%;
+    }
+
+    .blog-post-content {
+        padding: 10px;
+    }
+
+    .footer {
+        font-size: 0.9em;
+        padding: 15px;
+    }
+}

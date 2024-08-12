@@ -174,12 +174,16 @@ body {
     transition: border-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
+
+
 /* Hover Effect */
 .features-banner.one img:hover,
 .features-banner.two img:hover {
     border-color: #011649;
     transform: scale(1.05);
 }
+
+
 
 /* Animation for Border */
 @keyframes borderPulse {
@@ -283,3 +287,5 @@ body {
         font-size: 0.9em;
     }
 }
+
+
