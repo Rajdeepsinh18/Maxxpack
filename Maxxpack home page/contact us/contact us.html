@@ -9,17 +9,68 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Base Styles */
+        /* Base Theme Variables */
+        :root {
+            --bg-color-light: #ffffff;
+            --bg-color-dark: #1e1e1e;
+            --text-color-light: #000000;
+            --text-color-dark: #007bff;
+            --button-bg-color-light: #007bff;
+            --button-bg-color-dark: #4e4e4e;
+            --button-text-color: #ffffff;
+            --button-hover-bg-color-light: #0056b3;
+            --button-hover-bg-color-dark: #333333;
+        }
+
+        /* Default Light Theme */
+        body {
+            background-color: var(--bg-color-light);
+            color: var(--text-color-light);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
+        }
+
+        /* Theme Toggle Button Styles */
+        #theme-toggle {
+            background-color: var(--button-bg-color-light);
+            color: var(--button-text-color);
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 20px 0;
+        }
+
+        #theme-toggle.dark-mode {
+            background-color: var(--button-bg-color-dark);
+        }
+
+        #theme-toggle:hover {
+            background-color: var(--button-hover-bg-color-light);
+        }
+
+        #theme-toggle.dark-mode:hover {
+            background-color: var(--button-hover-bg-color-dark);
+        }
+
+        /* Contact Section Styles */
         .contact {
             padding: 2rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-image: url('5590822.jpg'); /* Add background image for the contact section */
-            background-size: cover; /* Ensure the image covers the entire section */
-            background-position: center; /* Center the image */
-            background-repeat: no-repeat; /* Prevent the image from repeating */
+            background-image: url('5590822.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .contact h1, .contact p, .contact .row {
@@ -40,11 +91,11 @@
         .contact-form {
             max-width: 600px;
             width: 100%;
-            background-image: url('background-form.jpg'); /* Add background image for the form container */
+            background-image: url('background-form.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            padding: 2rem; /* Ensure padding is added for content readability */
+            padding: 2rem;
         }
 
         /* Adjustments for medium screens */
@@ -111,11 +162,15 @@
     </style>
 </head>
 <body>
+    <h2 style="color: black; font-weight: bold; font-size: 0.8rem;">
+        <button id="theme-toggle">Light mode & Dark Mode</button>
+    </h2>
+
     <section class="contact" id="contact">
         <div class="container">
-            <h1 class="text-center" style="color: black; font-weight: bold; font-size: 6.5rem;" data-aos="fade-down">Contact Us</h1>
+            <h1 class="text-center" style="color: black; font-weight: bold; font-size: 4.5rem;" data-aos="fade-down">Contact Us</h1>
 
-            <p class="section-text text-center" data-aos="fade-down"style="color: black; font-weight: bold; font-size: 3.5rem;">
+            <p class="section-text text-center" data-aos="fade-down" style="color: black; font-weight: bold; font-size: 2.5rem;">
                 Contact us for expert packaging solutions - Mono Carton boxes, Corrugated boxes, Paperboard cartons, Rigid boxes, and Custom sticker labels, Pharmaciticuls inserts.
             </p>
 
@@ -135,7 +190,9 @@
                     <p style="font-size: medium; margin-top: 2rem;">+91 7405365886 <br><span>maxxpack2713@gmail.com</span></p> 
                 </div>
                 <div class="col-md-4">
-                    <h3 style="color: black; font-weight: bold;font-size: 2.5rem;"><i class="fa-solid fa-clock"></i> Opening Hours</h3>
+                    <h3 style="color: black; font-weight: bold; font-size: 2.5rem;">
+                        <i class="fa-solid fa-clock"></i> Opening Hours
+                    </h3>
                     <p style="font-size: medium; margin-top: 2rem;">9:00 AM - 6:00 PM</p>
                 </div>
             </div>
@@ -173,9 +230,6 @@
         </div>
     </section>
 
- 
-
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -187,6 +241,34 @@
             offset: 120,
             delay: 0,
             duration: 1000,
+        });
+
+        // Toggle Theme Function
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.getElementById('theme-toggle');
+
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                themeToggle.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.add('dark-mode');
+                themeToggle.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Event Listener for Theme Toggle Button
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+        // Load saved theme from localStorage
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('theme-toggle').classList.add('dark-mode');
+            }
         });
     </script>
 </body>

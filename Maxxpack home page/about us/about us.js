@@ -1,3 +1,18 @@
+
+    const toggleTheme = () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+    };
+
+    // Example: Toggle theme on a button click
+    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+
+
+
+
+
 // Banner image click event to toggle size
 document.querySelectorAll('.features-banner img').forEach(image => {
     image.addEventListener('click', function() {
@@ -19,3 +34,9 @@ style.innerHTML = `
   }
 `;
 document.head.appendChild(style);
+
+
+
+
+
+

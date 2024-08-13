@@ -1,6 +1,18 @@
 :root {
     --logo-width: 300px;
     --spin-speed: 1.3s;
+    
+    /* Light Mode Colors */
+    --bg-color-light: #ecf0f1;
+    --text-color-light: #27ae60;
+    --preloader-bg-light: rgba(9, 12, 49, 0.8);
+    --circle-color-light: #fff;
+
+    /* Dark Mode Colors */
+    --bg-color-dark: #2c3e50;
+    --text-color-dark: #ecf0f1;
+    --preloader-bg-dark: rgba(236, 240, 241, 0.8);
+    --circle-color-dark: #27ae60;
 }
 
 /* Resetting default styles */
@@ -20,13 +32,38 @@ body {
     gap: 10px 0;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
-    color: #27ae60;
-    background-color: #ecf0f1;
     cursor: default;
+    transition: background-image 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+/* Light Mode */
+body[data-theme="light"] {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
     background-image: url('6530.jpg');
-    background-size: cover;
-    background-position: center;
-    transition: background-image 0.5s ease-in-out;
+}
+
+body[data-theme="light"] .preloader {
+    background-color: var(--preloader-bg-light);
+}
+
+body[data-theme="light"] .preloader__circle {
+    border-top: 2px solid var(--circle-color-light);
+}
+
+/* Dark Mode */
+body[data-theme="dark"] {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+    background-image: url('dark-background.jpg'); /* Replace with a dark theme image if available */
+}
+
+body[data-theme="dark"] .preloader {
+    background-color: var(--preloader-bg-dark);
+}
+
+body[data-theme="dark"] .preloader__circle {
+    border-top: 2px solid var(--circle-color-dark);
 }
 
 /* Preloader styles */
@@ -37,7 +74,6 @@ body {
     width: 100vw;
     height: 100vh;
     z-index: 100;
-    background-color: rgba(9, 12, 49, 0.8); /* Slightly transparent background */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,13 +96,13 @@ body {
 }
 
 .preloader__circle {
-    border-top: 2px solid #fff;
     border-radius: 50%;
     width: calc(var(--logo-width) + 10px);
     height: calc(var(--logo-width) + 10px);
     animation: preloader-spin var(--spin-speed) linear infinite;
 }
 
+/* Keyframes for spin animation */
 @keyframes preloader-spin {
     0% {
         transform: rotate(0deg);
@@ -79,17 +115,17 @@ body {
 /* Responsive Design */
 @media (max-width: 1200px) {
     body {
-        font-size: 18px; /* Slightly smaller font size for medium screens */
+        font-size: 18px;
     }
 }
 
 @media (max-width: 992px) {
     body {
-        font-size: 16px; /* Smaller font size for large tablets */
+        font-size: 16px;
     }
 
     .preloader__logo {
-        width: 250px; /* Adjust logo size */
+        width: 250px;
     }
 
     .preloader__circle {
@@ -100,11 +136,11 @@ body {
 
 @media (max-width: 768px) {
     body {
-        font-size: 14px; /* Smaller font size for tablets and mobile devices */
+        font-size: 14px;
     }
 
     .preloader__logo {
-        width: 200px; /* Adjust logo size */
+        width: 200px;
     }
 
     .preloader__circle {
@@ -115,11 +151,11 @@ body {
 
 @media (max-width: 576px) {
     body {
-        font-size: 12px; /* Even smaller font size for very small screens */
+        font-size: 12px;
     }
 
     .preloader__logo {
-        width: 150px; /* Adjust logo size */
+        width: 150px;
     }
 
     .preloader__circle {

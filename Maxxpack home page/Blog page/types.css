@@ -1,4 +1,14 @@
-
+/* Base Colors */
+:root {
+    --background-light: rgba(255, 255, 255, 0.8);
+    --background-dark: rgba(34, 34, 34, 0.8);
+    --text-light: #000;
+    --text-dark: #fff;
+    --primary-bg-light: rgba(255, 255, 255, 0.8);
+    --primary-bg-dark: rgba(0, 0, 0, 0.8);
+}
+        
+        
         body {
             background-image: url('5590822.jpg');
             background-size: cover;
@@ -7,6 +17,8 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-light);
         }
 
         .navigation {
@@ -59,6 +71,24 @@
             background-color: rgba(255, 255, 255, 0.8);
             margin-top: 20px;
         }
+
+ /* Dark Theme */
+body.dark-mode {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+body.dark-mode .navigation {
+    background-color: var(--primary-bg-dark);
+}
+
+body.dark-mode .blog-post-content {
+    background-color: var(--primary-bg-dark);
+}
+
+body.dark-mode .footer {
+    background-color: var(--primary-bg-dark);
+}       
 
         /* Responsive Design */
         @media (max-width: 768px) {

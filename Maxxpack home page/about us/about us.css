@@ -1,9 +1,36 @@
+/* Global Variables for Light and Dark Mode */
+:root {
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --section-title-color: #011649;
+    --features-item-background: #f8f9fa;
+    --border-color: transparent;
+    --hover-border-color: #011649;
+    --button-bg-color: #007bff;
+    --button-text-color: #ffffff;
+    --button-hover-bg-color: #0056b3;
+    --submit-button-bg-color: #28a745;
+    --submit-button-text-color: #ffffff;
+    --reset-button-bg-color: #dc3545;
+    --reset-button-text-color: #ffffff;
+}
+
+[data-theme="dark"] {
+    --background-color: #333333;
+    --text-color: #f8f9fa;
+    --section-title-color: #e0e0e0;
+    --features-item-background: #444444;
+    --border-color: #555555;
+    --hover-border-color: #e0e0e0;
+}
+
 /* Global Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #333;
+    color: var(--text-color);
+    background-color: var(--background-color);
     background-image: url('banner-bg.jpg');
     background-size: cover;
     background-position: center;
@@ -24,7 +51,7 @@ body {
 /* Container */
 .container {
     width: 95%;
-    max-width: 1500px;
+    max-width: 700px;
     margin: 0 auto;
     opacity: 0;
     transform: scale(0.95);
@@ -48,7 +75,7 @@ body {
     font-size: 2.5em;
     text-align: center;
     margin-bottom: 20px;
-    color: #011649;
+    color: var(--section-title-color);
     opacity: 0;
     transform: translateY(-20px);
     animation: slideDownFadeIn 1s ease-out forwards;
@@ -66,7 +93,7 @@ body {
     font-size: 1.0em;
     text-align: center;
     margin-bottom: 40px;
-    color: #011649;
+    color: var(--section-title-color);
     padding: auto;
     opacity: 0;
     transform: translateY(20px);
@@ -92,13 +119,14 @@ body {
 }
 
 .features-item {
-   
     border-radius: 6px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     padding: 20px;
     box-sizing: border-box;
     text-align: center;
+    background-color: var(--features-item-background);
+    border: 4px solid var(--border-color);
     transform: translateY(30px);
     opacity: 0;
     animation: slideUp 1s ease-out forwards;
@@ -117,7 +145,7 @@ body {
     font-size: 1.5em;
     margin-top: 15px;
     margin-bottom: 10px;
-    color: #011649;
+    color: var(--section-title-color);
     opacity: 0;
     transform: translateY(-20px);
     animation: slideDownFadeIn 0.8s ease-out forwards;
@@ -126,7 +154,7 @@ body {
 
 .features-item p {
     font-size: 1em;
-    color: #011649;
+    color: var(--section-title-color);
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInSlideUp 1.5s ease-out forwards;
@@ -170,20 +198,16 @@ body {
 .features-banner.two img {
     max-width: 100%;
     border-radius: 8px;
-    border: 4px solid transparent;
+    border: 4px solid var(--border-color);
     transition: border-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
-
-
 
 /* Hover Effect */
 .features-banner.one img:hover,
 .features-banner.two img:hover {
-    border-color: #011649;
+    border-color: var(--hover-border-color);
     transform: scale(1.05);
 }
-
-
 
 /* Animation for Border */
 @keyframes borderPulse {
@@ -215,7 +239,77 @@ body {
     }
 }
 
-/* Responsive Design */
+/* Theme Toggle Button Styles */
+#theme-toggle {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 24px; /* Default padding */
+    font-size: 1em; /* Default font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 20px 0;
+    width: 200px; /* Default width */
+    height: 50px; /* Default height */
+}
+
+#theme-toggle:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+/* General Button Styles (for other buttons) */
+button {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 20px 0;
+}
+
+button:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+/* Specific Button Type Styling (if needed) */
+button[type="submit"] {
+    background-color: var(--submit-button-bg-color);
+    color: var(--submit-button-text-color);
+}
+
+button[type="reset"] {
+    background-color: var(--reset-button-bg-color);
+    color: var(--reset-button-text-color);
+}
+
+/* Responsive Design for Larger Screens */
+@media (min-width: 1500px) {
+    .container {
+        width: 90%;
+    }
+
+    .section-title {
+        font-size: 3em;
+    }
+
+    .section-text {
+        font-size: 1.2em;
+    }
+
+    .features-item h3 {
+        font-size: 2em;
+    }
+
+    .features-item p {
+        font-size: 1.1em;
+    }
+}
+
+/* Responsive Design for Desktop Screens */
 @media (max-width: 1200px) {
     .container {
         width: 95%;
@@ -228,31 +322,59 @@ body {
     .section-text {
         font-size: 1.1em;
     }
-}
 
-@media (max-width: 1024px) {
     .features-item {
         width: calc(50% - 20px);
     }
+
+    .features-item h3 {
+        font-size: 1.8em;
+    }
+
+    .features-item p {
+        font-size: 1em;
+    }
 }
 
+/* Responsive Design for Tablets */
 @media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 0 20px;
+    }
+
     .features-item {
         width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+
+    .section-text {
+        font-size: 1em;
+    }
+
+    .features-item h3 {
+        font-size: 1.6em;
+    }
+
+    .features-item p {
+        font-size: 0.95em;
     }
 
     .banner-wrapper {
         flex-direction: column;
     }
-
-    .features-banner.one img,
-    .features-banner.two img {
-        margin-bottom: 20px;
-        animation: fadeIn 0.6s ease-in-out;
-    }
 }
 
+/* Responsive Design for Mobile Phones */
 @media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
     .section-title {
         font-size: 1.8em;
     }
@@ -261,19 +383,31 @@ body {
         font-size: 1em;
     }
 
+    .features-item {
+        padding: 15px;
+        font-size: 0.9em;
+    }
+
     .features-item h3 {
-        font-size: 1.8em;
-        
+        font-size: 1.5em;
     }
 
     .features-item p {
-        font-size: .9em;
-        
+        font-size: 0.85em;
     }
 
+    .features-banner.one img,
+    .features-banner.two img {
+        margin-bottom: 20px;
+    }
 }
 
+/* Responsive Design for Small Mobile Phones */
 @media (max-width: 320px) {
+    .container {
+        padding: 0 10px;
+    }
+
     .section-title {
         font-size: 1.6em;
     }
@@ -283,9 +417,15 @@ body {
     }
 
     .features-item {
-        padding: 13px;
-        font-size: 0.9em;
+        padding: 10px;
+        font-size: 0.8em;
+    }
+
+    .features-item h3 {
+        font-size: 1.4em;
+    }
+
+    .features-item p {
+        font-size: 0.75em;
     }
 }
-
-
